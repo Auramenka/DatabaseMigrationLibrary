@@ -1,0 +1,1 @@
+INSERT INTO authors (name) VALUES ('Leo Tolstoy'), ('Fyodor Dostoevsky'), ('Mark Twain');
