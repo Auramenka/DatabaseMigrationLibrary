@@ -1,0 +1,41 @@
+plugins {
+    id 'java'
+    id 'java-library'
+    id 'maven-publish'
+    id 'io.freefair.lombok' version '8.3'
+}
+
+group = 'com.innowise'
+version = '1.0-SNAPSHOT'
+
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.postgresql:postgresql:42.6.0'
+    implementation 'org.projectlombok:lombok:1.18.26'
+    implementation 'ch.qos.logback:logback-classic:1.2.6'
+    implementation 'com.fasterxml.jackson.core:jackson-databind:2.18.1'
+    implementation 'com.fasterxml.jackson.core:jackson-core:2.18.1'
+    implementation 'com.fasterxml.jackson.core:jackson-annotations:2.18.1'
+    compileOnly 'org.projectlombok:lombok'
+}
+
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            from components.java
+        }
+    }
+    repositories {
+        maven {
+            url = './m2'
+        }
+    }
+}
+
+test {
+    useJUnitPlatform()
+}
